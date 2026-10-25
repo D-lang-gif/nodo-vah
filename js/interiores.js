@@ -1,0 +1,31 @@
+// Interiores básicos (muros, puertas, huellas de equipo) — coordenadas locales relativas al rectángulo de sitio.py
+// Formato: muros [x0,y0,x1,y1, [[centro_puerta, ancho],...]] (ejes ortogonales, relativos a x0,y0 del edificio)
+// equipos: [nombre, x0,y0,x1,y1,h,'caja'|'cil']   (relativos)
+export const INTERIORES = {
+  "B-301": { techo: 4.0, inicio: [3.5, 1.6, 0],
+    puertas: { S: [[3.5, 2.0]] },
+    muros: [],
+    equipos: [["Soplador SB-301A (Roots 25 HP)", 1.2, 4, 2.8, 5, 1.2, "caja"], ["Soplador SB-301B (respaldo)", 4.2, 4, 5.8, 5, 1.2, "caja"], ["CCM / VFD", 2.3, 7.2, 4.7, 7.8, 2.1, "caja"]],
+    cuartos: [["Casa de sopladores", 3.5, 2.6]] },
+  "FA-701": { techo: 5.0, inicio: [9, 1.5, 0],
+    puertas: { S: [[9, 3.0]], N: [[9, 2.0]] },
+    muros: [],
+    equipos: [["FM-701A", 2.62, 7.62, 3.38, 8.38, 1.83, "cil"], ["FM-701B", 3.82, 7.62, 4.58, 8.38, 1.83, "cil"], ["FM-702A", 8.02, 7.62, 8.78, 8.38, 1.83, "cil"], ["FM-702B", 9.22, 7.62, 9.98, 8.38, 1.83, "cil"],
+      ["FM-703A", 13.42, 7.62, 14.18, 8.38, 1.83, "cil"], ["FM-703B", 14.62, 7.62, 15.38, 8.38, 1.83, "cil"], ["UV-701A 80 m³/h", 2.5, 3.0, 4.7, 3.6, 1.0, "caja"], ["UV-701B 80 m³/h", 12.5, 3.0, 14.7, 3.6, 1.0, "caja"], ["Bombas retrolavado", 15.6, 1.2, 16.8, 1.8, .9, "caja"]],
+    cuartos: [["Filtración multicama (3 trenes)", 9, 10.4], ["Desinfección UV", 9, 4.8]] },
+  "PL-501": { techo: 7.5, inicio: [21, 12, 0],
+    puertas: { S: [[6, 3.0], [21, 3.0], [37, 2.0]], N: [[21, 3.0]], E: [[15, 2.0]] },
+    muros: [[12, 0, 12, 30, [[8, 2.0], [22, 2.0]]], [30, 0, 30, 30, [[8, 2.0], [22, 2.0]]], [0, 15, 12, 15, [[6, 1.5]]], [30, 12, 44, 12, [[34, 1.2]]]],
+    equipos: [["Recepción / filtro-enfriador", 3, 4, 6, 5.5, 1.4, "caja"], ["CIP-1", 2.55, 19.55, 3.45, 20.45, 2, "cil"], ["CIP-2", 4.55, 19.55, 5.45, 20.45, 2, "cil"], ["CIP-3", 6.55, 19.55, 7.45, 20.45, 2, "cil"],
+      ["Pasteurizador HTST 2,000 L/h", 15, 5, 19, 6.8, 1.8, "caja"], ["Tina quesera TQ-1 500 L", 19.35, 19.35, 20.65, 20.65, 1.1, "cil"], ["Tina quesera TQ-2 500 L", 23.35, 19.35, 24.65, 20.65, 1.1, "cil"], ["Mesa de moldeo/prensado", 19, 25, 25, 26, .9, "caja"],
+      ["Línea de empaque", 33, 5, 39, 6, .9, "caja"]],
+    camara: [38.5, 25.5, 43, 29, 2.6, 40.75],
+    cuartos: [["Recepción", 6, 8], ["CIP", 6, 23], ["Proceso · pasteurización y quesería", 21, 14], ["Empaque", 37, 8], ["Cámara 2–4 °C · 40 m³", 40.75, 27.2], ["Vestidores / sanitarios", 37, 20]] },
+  "AD-601": { techo: 4.0, inicio: [6, 8, -90],
+    puertas: { S: [[4, 2.4]], N: [[7, 1.8]], W: [[8, 1.8]], E: [[8, 1.8]] },
+    muros: [[0, 7, 34, 7, [[4, 2.4], [12, 1.0], [21, 1.0], [30, 1.0]]], [0, 9, 34, 9, [[7, 1.8], [16.5, 1.0], [26, 1.0]]], [8, 0, 8, 7, []], [16, 0, 16, 7, []], [26, 0, 26, 7, []], [14, 9, 14, 16, []], [19, 9, 19, 16, []]],
+    equipos: [["Sala de juntas", 9.5, 2.5, 14.5, 4, .75, "caja"], ["Escritorios", 17.5, 2, 24.5, 3, .75, "caja"], ["Consola CC-1", 2, 12, 5, 12.9, .8, "caja"], ["Consola CC-2", 5.5, 12, 8.5, 12.9, .8, "caja"], ["Consola CC-3", 9, 12, 12, 12.9, .8, "caja"],
+      ["Rack servidores IA-VAH A", 15.2, 13, 15.8, 14.2, 2.0, "caja"], ["Rack servidores IA-VAH B", 16.6, 13, 17.2, 14.2, 2.0, "caja"], ["Escritorios", 21, 12, 32, 13, .75, "caja"]],
+    pantalla: [2, 15.85, 12, 1.0, 3.4],
+    cuartos: [["Vestíbulo", 4, 3.5], ["Sala de juntas", 12, 5.5], ["Oficinas", 21, 5.5], ["Sanitarios", 30, 3.5], ["Centro de control IA-VAH™", 7, 14.5], ["Servidores", 16.5, 11], ["Oficinas técnicas", 26.5, 14.5], ["Pasillo", 24, 8]] },
+};
