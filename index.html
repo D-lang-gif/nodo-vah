@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NODO VAH · Visor 3D de Arquitectura e Infraestructura</title>
+<link rel="stylesheet" href="css/visor.css">
+</head>
+<body>
+<div id="lienzo"></div>
+<div id="etiquetas"></div>
+
+<header id="barra">
+  <div class="marca"><span class="logo">◆</span><div><b>NODO VAH</b><small>INOVA AGRO · Nodo de Valor Agregado Hídrico-Energético · Gómez Palacio, Dgo.</small></div></div>
+  <nav id="vistas">
+    <button data-vista="aerea">Aérea</button>
+    <button data-vista="iso" class="on">Isométrica</button>
+    <button data-vista="sibra">SIBRA</button>
+    <button data-vista="peatonal">Recorrido</button>
+    <button data-vista="orbita">Órbita</button>
+  </nav>
+  <div class="der"><button id="btnCAD" title="Modo CAD 3D">⌖ CAD</button><button id="btnPres" title="Presupuesto">$ Presupuesto</button><button id="btnNoche" title="Día / noche">☀ Día</button><button id="btnAyuda" title="Ayuda">?</button></div>
+</header>
+
+<aside id="panelCapas" class="panel">
+  <h3>Redes e infraestructura</h3>
+  <div id="capas"></div>
+  <h3>Modo</h3>
+  <label class="sw"><input type="checkbox" id="chkFases"><span></span> Fases de desarrollo</label>
+  <label class="sw"><input type="checkbox" id="chkEtiq" checked><span></span> Etiquetas de zonas</label>
+  <label class="sw"><input type="checkbox" id="chkSup"><span></span> Resaltar supuestos</label>
+  <div id="kpis"></div>
+</aside>
+
+<aside id="panelInfo" class="panel oculto">
+  <button class="cerrar" id="cerrarInfo">×</button>
+  <div id="infoCont"></div>
+</aside>
+
+<div id="linea" class="panel oculto">
+  <div class="lt"><b id="faseNom">Fase 4</b><span id="faseDet"></span></div>
+  <input type="range" id="faseSlider" min="0" max="4" step="1" value="4">
+  <div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></div>
+  <div id="faseLeyenda"></div>
+</div>
+
+<div id="mini" class="panel"><canvas id="miniCanvas" width="220" height="220"></canvas><div class="mt">Plano de llave · N ↑</div></div>
+<div id="norte"><svg viewBox="0 0 60 60"><g id="rosa"><circle cx="30" cy="30" r="27" fill="rgba(10,16,24,.65)" stroke="#5fd1ff" stroke-width="1"/><path d="M30 6 L37 32 L30 28 L23 32Z" fill="#5fd1ff"/><path d="M30 54 L37 28 L30 32 L23 28Z" fill="#33404d"/><text x="30" y="19" text-anchor="middle" font-size="9" fill="#0b1118" font-weight="700">N</text></g></svg></div>
+<div id="escala"><div id="escBar"></div><span id="escTxt">20 m</span></div>
+<div id="utm" class="panel">UTM 13R · E —  N — </div>
+<div id="tip"></div>
+<div id="nota">ANTEPROYECTO CONCEPTUAL – NO VÁLIDO PARA CONSTRUCCIÓN · requiere validación y firma de perito/DRO</div>
+<div id="ayuda" class="panel oculto">
+  <h3>Controles</h3>
+  <p><b>Ratón:</b> arrastrar = orbitar · clic derecho = desplazar · rueda = acercar.<br><b>Clic</b> en una instalación = ficha técnica.<br><b>Recorrido:</b> W A S D / flechas para caminar, arrastrar para mirar.<br><b>Minimapa:</b> clic para centrar la vista.</p>
+  <p><b>CAD:</b> planta y alzados ortogonales (arrastrar = desplazar, rueda/pellizco = zoom), corte móvil, alambre / rayos X, capas DXF, snap a vértices y aristas, medición (distancia, polilínea, área, altura, ángulo) en metros con 2 decimales, cotas, rejilla 10 m / 1 m, primera persona (ojo 1.70 m, WASD + ratón o joystick táctil, colisiones) e interiores.</p>
+  <p><b>Parámetros URL:</b> <code>?vista=aerea|iso|sibra|peatonal|orbita&amp;flujos=1&amp;fases=1&amp;fase=2&amp;noche=1&amp;info=R-201A&amp;ui=0&amp;cad=planta|alzS|3d|walk&amp;at=PL-501&amp;corte=x:30&amp;pres=1</code></p>
+  <p class="peq">Datos: Documento Ejecutivo Maestro Integral y Planos de Ingeniería y Especificaciones Técnicas (Drive). Los valores marcados SUPUESTO deben validarse.</p>
+</div>
+<div id="carga"><div class="anillo"></div><span>Construyendo el Nodo VAH…</span></div>
+
+<script src="data/sitio.js"></script>
+<script src="data/presupuesto.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
